@@ -1,0 +1,18 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with C-x C-f and enter text in its buffer.
+
+(defun fraction (numr denr)
+	(list 'fr numr denr)
+)
+
+(defun numr (a) (second a))
+(defun denr (a) (third a))
+
+(defun fr* (a b)
+	(let 	(num-a (numr a))
+			(num-b (numr b))
+			(denom-a (denr a))
+			(denom-b (denr b))
+	)
+	(fraction (+ (* num-a denom-b) (* denom-a denom-b)))		
+)
